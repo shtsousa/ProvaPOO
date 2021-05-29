@@ -4,7 +4,7 @@ import sqlite3
 db = sqlite3.connect('livros.db')
 cursor = db.cursor()
 
-
+ 
 class Interface:
 
     def register_book(self):
