@@ -43,14 +43,14 @@ class Interface:
 
     def loop(self):
         while True:
-            cmd = input('\n1 - List book:\n2 - Register Book:\n3 - Show List:\n4 - Exit\n')
-            if cmd == '1':
+            opt = input('\n1 - List book:\n2 - Register Book:\n3 - Show List:\n4 - Exit\n')
+            if opt == '1':
                 self.search_book()
-            elif cmd == '2':
+            elif opt == '2':
                 self.register_book()
-            elif cmd == '3':
+            elif opt == '3':
                 self.show_list()
-            elif cmd == '4':
+            elif opt == '4':
                 break
             else:
                 print('Unknown option. Options only 1-4.')
