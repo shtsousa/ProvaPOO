@@ -17,10 +17,10 @@ class Interface:
             print(insNF)
 
         elif options == 2:
-            resAu = input('Insert name from author:\n')
-            resAF = cursor.execute("SELECT autor FROM livros WHERE " + resAu + " == author")
+            insAU = input('Insert name from author:\n')
+            insAF = cursor.execute("SELECT autor FROM livros WHERE " + insAU + " == author")
             db.commit()
-            print(resAF)
+            print(insAF)
 
         elif options == 3:
             return 0
