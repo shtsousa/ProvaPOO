@@ -9,10 +9,10 @@ class Interface:
 
     def register_book(self):
         cursor.execute("SELECT * from livros")
-        name = input('Quais é o nome do livro?\n')
-        autor = input('Quem foi o autor da Obra?\n')
-        editor = input('qual editora foi responsável pela publicação?\n')
-        read = input('voce terminou a leitura dele? s/n\n')
+        name = input('Qual é o nome do livro?\n')
+        autor = input('Qual o autor?\n')
+        editor = input('Editora responsável??\n')
+        read = input('O livro foi lido até o final? Sim\nNao')
 
         cursor.execute(
             "INSERT INTO livros(nome, autor, editora, lido) VALUES(" + name + ", " + autor + ", " + editor + " " + read + ")")
@@ -22,27 +22,24 @@ class Interface:
     def search_book(self):
 
         print('Qual sera o metodo de pesquisa?\n')
-        opc = input('Digite 1 para nome do livro\nDigite 2 para autor\nDigite 3 para cancelar:\n')
-        if opc == 1:
+        options = input('Digite 1 para nome do livro\nDigite 2 para autor\nDigite 3 para cancelar:\n')
+        if options == 1:
             resN = input('digite o nome do livro:\n')
             resNF = cursor.execute("SELECT nome FROM livros WHERE " + resN + " == nome")
             db.commit()
             print(resNF)
 
-        elif opc == 2:
+        elif options == 2:
             resAu = input('digite o nome do autor:\n')
             resAF = cursor.execute("SELECT autor FROM livros WHERE " + resAu + " == autor")
             db.commit()
             print(resAF)
 
-        elif opc == 3:
+        elif options == 3:
             return 0
 
     def show_list(self):
         #não consegui fazer a informação do sql aparecer
-
-        print('o arquivo não pode ser lido na IDE. para mais informações, acesse o README.')
-
         return 0
 
     def loop(self):
