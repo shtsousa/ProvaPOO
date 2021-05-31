@@ -4,6 +4,18 @@ class livro:
         self.editora = editora
         self.codigo = codigo
         self.autor = autor
+        
+    def setCodigo(self, codigo):
+        self.numero = numero
+
+    def setNome(self, nome):
+        self.nome = nome
+
+    def setAutor(self, autor):
+        self.autor = autor
+
+    def setEditora(self, editora):
+        self.editora = editora
 
     def getCodigo(self):
         return self.codigo
@@ -17,28 +29,15 @@ class livro:
     def getEditora(self):
         return self.editora
 
-    def setCodigo(self, codigo):
-        self.numero = numero
-
-    def setNome(self, nome):
-        self.nome = nome
-
-    def setAutor(self, autor):
-        self.autor = autor
-
-    def setEditora(self, editora):
-        self.editora = editora
-
-
 class Interface:
     alunos = []
 
     def registra_Livro(self):
-        nome = input('Quais é o nome do livro?\n')
-        autor = input('Quem foi o autor da Obra?\n')
+        nome = input('Insira o Nome do Livro?\n')
+        autor = input('Insira o autor da Obra?\n')
 
         self.livros.append(livro(nome, autor, ))
-        print('livro adicionado!')
+        print('Livro registrado')
 
     def procurar_Livros(self):
         for i, livro in enumerate(self.livros):
@@ -56,6 +55,6 @@ class Interface:
             elif cmd == '3':
                 self.mudar_senha()
             else:
-                print('opção invalida. por favor, selecione APENAS os itens listados.')
+                print('Selecione apenas os itens acima.')
                 continue
 
