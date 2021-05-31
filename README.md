@@ -1,3 +1,3 @@
 # ProvaPOO
 
-2ªa Prova Oficial de Linguagem de Programação utilizando Python
+2ª Prova Oficial de Linguagem de Programação utilizando Python
