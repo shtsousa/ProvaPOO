@@ -3,34 +3,22 @@ import sqlite3
 
 db = sqlite3.connect('livros.db')
 cursor = db.cursor()
-
  
 class Interface:
-
-    def register_book(self):
-        cursor.execute("SELECT * from livros")
-        name = input('Qual é o nome do livro?\n')
-        autor = input('Qual o autor?\n')
-        editor = input('Editora responsável??\n')
-        read = input('O livro foi lido até o final? Sim\nNao')
-
-        cursor.execute(
-            "INSERT INTO livros(nome, autor, editora, lido) VALUES(" + name + ", " + autor + ", " + editor + " " + read + ")")
-        db.commit()
-        print('livro adicionado!')
-
+ 
+ 
     def search_book(self):
 
-        print('Qual sera o metodo de pesquisa?\n')
-        options = input('Digite 1 para nome do livro\nDigite 2 para autor\nDigite 3 para cancelar:\n')
+        print('Insert your desired option!\n')
+        options = input('1 - Name \n2-Author\n3-Press 3 to cancel: \n')
         if options == 1:
-            resN = input('digite o nome do livro:\n')
+            resN = input('Insert book name:\n')
             resNF = cursor.execute("SELECT nome FROM livros WHERE " + resN + " == nome")
             db.commit()
             print(resNF)
 
         elif options == 2:
-            resAu = input('digite o nome do autor:\n')
+            resAu = input('Insert name from author:\n')
             resAF = cursor.execute("SELECT autor FROM livros WHERE " + resAu + " == autor")
             db.commit()
             print(resAF)
@@ -38,6 +26,18 @@ class Interface:
         elif options == 3:
             return 0
 
+    def register_book(self):
+        name = input('Name of book?\n')
+        cursor.execute("SELECT * FROM livros")
+        autor = input('Author?\n')
+        editor = input('Publishing Company?\n')
+        read = input('Did you read the whole book? Yes\nNot')
+
+        cursor.execute(
+            "INSERT INTO livros(nome, autor, editora, lido) VALUES(" + name + ", " + autor + ", " + editor + " " + read + ")")
+        db.commit()
+        print('Ok, book inserted')
+    
     def show_list(self):
         #não consegui fazer a informação do sql aparecer
         return 0
