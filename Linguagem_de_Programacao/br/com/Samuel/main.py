@@ -5,21 +5,20 @@ db = sqlite3.connect('livros.db')
 cursor = db.cursor()
  
 class Interface:
- 
- 
+  
     def search_book(self):
 
         print('Insert your desired option!\n')
         options = input('1 - Name \n2-Author\n3-Press 3 to cancel: \n')
         if options == 1:
-            resN = input('Insert book name:\n')
-            resNF = cursor.execute("SELECT nome FROM livros WHERE " + resN + " == nome")
+            insN = input('Insert book name:\n')
+            insNF = cursor.execute("SELECT nome FROM livros WHERE " + insN + " == name")
             db.commit()
-            print(resNF)
+            print(insNF)
 
         elif options == 2:
             resAu = input('Insert name from author:\n')
-            resAF = cursor.execute("SELECT autor FROM livros WHERE " + resAu + " == autor")
+            resAF = cursor.execute("SELECT autor FROM livros WHERE " + resAu + " == author")
             db.commit()
             print(resAF)
 
@@ -34,7 +33,7 @@ class Interface:
         read = input('Did you read the whole book? Yes\nNot')
 
         cursor.execute(
-            "INSERT INTO livros(nome, autor, editora, lido) VALUES(" + name + ", " + autor + ", " + editor + " " + read + ")")
+            "INSERT INTO livros(name, author, editor, read) VALUES(" + name + ", " + autor + ", " + editor + " " + read + ")")
         db.commit()
         print('Ok, book inserted')
     
